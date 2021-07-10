@@ -4,13 +4,6 @@ An App to view and save all the current truck location data.
 
 **Note** this is just for the development build. Production build is on Heroku (see link for details, to be added)
 
-## Table of Contents
-
-- [Installation](#installation)
-- [Usage](#usage)
-- [Support](#support)
-- [Contributing](#contributing)
-
 ## Requirements
 
 Please make sure you have [Node installed](https://nodejs.org/en/) as well as local mongodb running on localhost port 27107 [Install Mongo](https://docs.mongodb.com/guides/server/install/)
