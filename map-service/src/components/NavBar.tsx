@@ -10,6 +10,7 @@ const NavBar: React.FC<NavBarProps> = (props) => {
   const onClickHandler = async () => {
     if (props.token.length > 0) {
       await logout(props.token);
+      await deleteAssets(props.token);
       window.location.href = "/login";
     } else {
       return;
@@ -27,6 +28,15 @@ const NavBar: React.FC<NavBarProps> = (props) => {
 
 const logout = async (token: string) => {
   await axios.delete("http://localhost:1337/api/sessions", {
+    headers: {
+      Authorization: `Bearer ${token}`,
+      "Access-Control-Allow-Origin": "*",
+    },
+  });
+};
+
+const deleteAssets = async (token: string) => {
+  await axios.delete("http://localhost:1337/assets", {
     headers: {
       Authorization: `Bearer ${token}`,
       "Access-Control-Allow-Origin": "*",

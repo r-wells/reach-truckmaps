@@ -39,7 +39,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.saveVehicleAssetDataHandler = exports.getVehicleAssetsHandler = void 0;
+exports.deleteVehicleAssetDataHandler = exports.saveVehicleAssetDataHandler = exports.getVehicleAssetsHandler = void 0;
 var axios_1 = __importDefault(require("axios"));
 var assets_service_1 = require("../service/assets.service");
 function getVehicleAssetsHandler(req, res) {
@@ -73,14 +73,14 @@ function getVehicleAssetsHandler(req, res) {
 exports.getVehicleAssetsHandler = getVehicleAssetsHandler;
 function saveVehicleAssetDataHandler(data) {
     return __awaiter(this, void 0, void 0, function () {
-        var res, err_2;
+        var err_2;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
                     _a.trys.push([0, 2, , 3]);
                     return [4 /*yield*/, assets_service_1.saveAssetData(data)];
                 case 1:
-                    res = _a.sent();
+                    _a.sent();
                     return [3 /*break*/, 3];
                 case 2:
                     err_2 = _a.sent();
@@ -92,3 +92,24 @@ function saveVehicleAssetDataHandler(data) {
     });
 }
 exports.saveVehicleAssetDataHandler = saveVehicleAssetDataHandler;
+function deleteVehicleAssetDataHandler(req, res) {
+    return __awaiter(this, void 0, void 0, function () {
+        var err_3;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0:
+                    _a.trys.push([0, 2, , 3]);
+                    return [4 /*yield*/, assets_service_1.deleteAssetData()];
+                case 1:
+                    _a.sent();
+                    return [2 /*return*/, res.send(200)];
+                case 2:
+                    err_3 = _a.sent();
+                    console.error(err_3);
+                    return [3 /*break*/, 3];
+                case 3: return [2 /*return*/];
+            }
+        });
+    });
+}
+exports.deleteVehicleAssetDataHandler = deleteVehicleAssetDataHandler;

@@ -25,5 +25,6 @@ function default_1(app) {
     // Store these assets to the database
     // Return the assets in a response
     app.get("/assets", middleware_1.requiresUser, assets_controller_1.getVehicleAssetsHandler);
+    app.delete("/assets", middleware_1.requiresUser, assets_controller_1.deleteVehicleAssetDataHandler);
 }
 exports.default = default_1;

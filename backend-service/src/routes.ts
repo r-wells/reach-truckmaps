@@ -1,6 +1,6 @@
 import { Express, Request, Response, NextFunction } from "express";
 import { createUserHandler } from "./controller/user.controller";
-import { getVehicleAssetsHandler } from "./controller/assets.controller";
+import { getVehicleAssetsHandler, deleteVehicleAssetDataHandler } from "./controller/assets.controller";
 import {
   createUserSessionHandler,
   invalidateUserSessionHandler,
@@ -44,4 +44,6 @@ export default function (app: Express) {
   // Store these assets to the database
   // Return the assets in a response
   app.get("/assets", requiresUser, getVehicleAssetsHandler);
+
+  app.delete("/assets", requiresUser, deleteVehicleAssetDataHandler);
 }

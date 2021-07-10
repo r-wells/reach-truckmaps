@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import axios from "axios";
-import { saveAssetData } from "../service/assets.service";
+import { saveAssetData, deleteAssetData } from "../service/assets.service";
 
 export interface Location {
     location: string;
@@ -43,9 +43,17 @@ export async function getVehicleAssetsHandler(req: Request, res: Response) {
   }
 
 export async function saveVehicleAssetDataHandler(data: Data) {
-    // console.log(data.assets);
     try {
-        const res = await saveAssetData(data);
+        await saveAssetData(data);
+    } catch(err) {
+        console.error(err);
+    }
+}
+
+export async function deleteVehicleAssetDataHandler(req: Request, res: Response) {
+    try {
+        await deleteAssetData();
+        return res.send(200);
     } catch(err) {
         console.error(err);
     }
