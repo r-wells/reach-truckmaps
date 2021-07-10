@@ -8,13 +8,15 @@ An App to view and save all the current truck location data.
 
 Please make sure you have [Node installed](https://nodejs.org/en/) as well as local mongodb running on localhost port 27107 [Install Mongo](https://docs.mongodb.com/guides/server/install/)
 
+To access the mongodb instance, you'll need to add a config folder (see assets sent) as well as a .env file to the backend-service, as well as a .env file to the map-service.
+
 ## Installation
 
-Download to the code your local device. Navigate to all the directories (backend-service, map-service) and run `npm install`
+Download to the code your local device. Navigate to all the directories (backend-service, map-service) and run `npm install`.
 
 ## Usage
 
-navigate to backend-service and run `npm run dev`
+navigate to backend-service and run `tsc && npm run dev`
 
 navigate to map-service and run `npm start`
 
