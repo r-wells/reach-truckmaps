@@ -1,0 +1,24 @@
+.navContainer {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  font-weight: bold;
+  padding: 10px;
+  width: 100vw;
+}
+
+ul {
+  list-style-type: none;
+}
+
+li:hover {
+  cursor: pointer;
+}
+
+.navButton {
+  color: white;
+  font-weight: bold;
+  margin: 0;
+  margin-left: 20px;
+  padding: 12px;
+}

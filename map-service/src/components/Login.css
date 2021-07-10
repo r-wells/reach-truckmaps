@@ -1,0 +1,44 @@
+.formContainer {
+  align-items: center;
+  background-color: lightsalmon;
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  width: 100vw;
+}
+
+form {
+  background-color: aliceblue;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  padding: 20px;
+  width: 30%;
+}
+
+label {
+  margin-top: 10px;
+}
+input {
+  margin-top: 10px;
+}
+
+button {
+  background-color: cornflowerblue;
+  border: none;
+  border-radius: 20px;
+  height: 48px;
+  margin-top: 20px;
+}
+
+button:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+@media screen and (max-width: 800px) {
+  form {
+    width: 80%;
+  }
+}
