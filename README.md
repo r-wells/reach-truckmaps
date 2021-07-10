@@ -8,7 +8,9 @@ An App to view and save all the current truck location data.
 
 Please make sure you have [Node installed](https://nodejs.org/en/) as well as local mongodb running on localhost port 27107 [Install Mongo](https://docs.mongodb.com/guides/server/install/)
 
-To access the mongodb instance, you'll need to add a config folder (see assets sent) as well as a .env file to the backend-service root directory, as well as a .env file to the map-service root directory.
+To access the mongodb instance, you'll need to add a config folder as well as a .env file to the backend-service root directory, as well as a .env file to the map-service root directory.
+
+You can get these assets from the dropbox link sent to hiring@atob.com, they are organized into the appropriate folders there.
 
 ## Installation
 
