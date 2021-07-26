@@ -17,11 +17,25 @@ const NavBar: React.FC<NavBarProps> = (props) => {
     }
   };
 
+  const signUpHandler = () => {
+    window.location.href = "/signup";
+  };
+
   return (
     <ul className="navContainer">
       <li onClick={() => onClickHandler()}>
         {props.token.length > 0 ? "Logout" : "Welcome To Truck Viewer"}
       </li>
+      {props.token.length <= 0 && (
+        <li
+          style={{
+            marginLeft: "20px",
+          }}
+          onClick={() => signUpHandler()}
+        >
+          Sign Up
+        </li>
+      )}
     </ul>
   );
 };

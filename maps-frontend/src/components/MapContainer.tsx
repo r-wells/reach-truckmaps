@@ -41,7 +41,9 @@ const MapContainer: React.FC<MapContainerProps> = (props) => {
   useEffect(() => {
     const fetchData = async () => {
       const response = await getTruckData(props.accessToken);
-
+      if (!response) {
+        window.location.href = "/login";
+      }
       setTruckData(response.data.assets);
     };
     fetchData();
