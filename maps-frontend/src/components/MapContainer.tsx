@@ -67,7 +67,7 @@ const MapContainer: React.FC<MapContainerProps> = (props) => {
     );
   } else {
     return (
-      <LoadScript googleMapsApiKey={"AIzaSyDcPmoBJ7bDoIiF32sfxzoMuYKUMls3RaI"}>
+      <LoadScript googleMapsApiKey={process.env.REACT_APP_GOOGLE_API_KEY ?? ""}>
         <GoogleMap
           mapContainerStyle={mapStyles}
           zoom={5}
