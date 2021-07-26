@@ -29,7 +29,7 @@ export async function getVehicleAssetsHandler(req: Request, res: Response) {
     try {
         // const data = await axios.get("https://api.samsara.com/v1/fleet/assets/locations", {
         //     headers: {
-        //         Authorization: 'Bearer ${}',
+        //         Authorization: 'Bearer ${process.env.SAMSARA_API}',
         //         "Access-Control-Allow-Origin": "*",
         //       }
         // }).then(assetRes => assetRes.data);
