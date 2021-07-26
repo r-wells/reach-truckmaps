@@ -27,7 +27,7 @@ const NavBar: React.FC<NavBarProps> = (props) => {
 };
 
 const logout = async (token: string) => {
-  await axios.delete("http://localhost:1337/api/sessions", {
+  await axios.delete("/api/sessions", {
     headers: {
       Authorization: `Bearer ${token}`,
       "Access-Control-Allow-Origin": "*",
@@ -36,7 +36,7 @@ const logout = async (token: string) => {
 };
 
 const deleteAssets = async (token: string) => {
-  await axios.delete("http://localhost:1337/assets", {
+  await axios.delete("/assets", {
     headers: {
       Authorization: `Bearer ${token}`,
       "Access-Control-Allow-Origin": "*",

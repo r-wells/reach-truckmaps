@@ -41,7 +41,6 @@ var requiresUser = function (req, res, next) { return __awaiter(void 0, void 0, 
     var user;
     return __generator(this, function (_a) {
         user = lodash_1.get(req, "user");
-        console.log('user', user);
         if (!user) {
             return [2 /*return*/, res.sendStatus(403)];
         }
