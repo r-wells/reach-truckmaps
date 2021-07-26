@@ -4,7 +4,7 @@ import log from "../logger";
 import process from "process";
 
 function connect() {
-  const dbUri = process.env.REST_API_LOCAL_DB || config.get("dbUri") as string;
+  const dbUri = process.env.MONGO_URI || config.get("dbUri") as string;
 
   return mongoose
     .connect(dbUri, {

@@ -2,7 +2,7 @@ import axios from "axios";
 
 export async function getTruckData(accessToken: string) {
     try {
-        const response = await axios.get("http://localhost:1337/assets", {
+        const response = await axios.get("/assets", {
             headers: {
                 Authorization: `Bearer ${accessToken}`,
                 "Access-Control-Allow-Origin": "*",

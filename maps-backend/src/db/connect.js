@@ -8,7 +8,7 @@ var config_1 = __importDefault(require("config"));
 var logger_1 = __importDefault(require("../logger"));
 var process_1 = __importDefault(require("process"));
 function connect() {
-    var dbUri = process_1.default.env.REST_API_LOCAL_DB || config_1.default.get("dbUri");
+    var dbUri = process_1.default.env.MONGO_URI || config_1.default.get("dbUri");
     return mongoose_1.default
         .connect(dbUri, {
         useNewUrlParser: true,
