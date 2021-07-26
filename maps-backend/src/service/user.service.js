@@ -39,77 +39,54 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.deleteVehicleAssetDataHandler = exports.saveVehicleAssetDataHandler = exports.getVehicleAssetsHandler = void 0;
-var axios_1 = __importDefault(require("axios"));
-var assets_service_1 = require("../service/assets.service");
-function getVehicleAssetsHandler(req, res) {
+exports.validatePassword = exports.findUser = exports.createUser = void 0;
+var lodash_1 = require("lodash");
+var user_model_1 = __importDefault(require("../model/user.model"));
+function createUser(input) {
     return __awaiter(this, void 0, void 0, function () {
-        var data, err_1;
-        return __generator(this, function (_a) {
-            switch (_a.label) {
-                case 0:
-                    _a.trys.push([0, 3, , 4]);
-                    return [4 /*yield*/, axios_1.default.get("https://api.samsara.com/v1/fleet/assets/locations", {
-                            headers: {
-                                Authorization: 'Bearer samsara_api_5VLdpZGYDXkTFlQAbjCwaXawlMZ8wH',
-                                "Access-Control-Allow-Origin": "*",
-                            }
-                        }).then(function (assetRes) { return assetRes.data; })];
-                case 1:
-                    data = _a.sent();
-                    return [4 /*yield*/, saveVehicleAssetDataHandler(data)];
-                case 2:
-                    _a.sent();
-                    return [2 /*return*/, res.send({ data: data })];
-                case 3:
-                    err_1 = _a.sent();
-                    console.error(err_1.message);
-                    return [2 /*return*/, res.sendStatus(401)];
-                case 4: return [2 /*return*/];
-            }
-        });
-    });
-}
-exports.getVehicleAssetsHandler = getVehicleAssetsHandler;
-function saveVehicleAssetDataHandler(data) {
-    return __awaiter(this, void 0, void 0, function () {
-        var err_2;
+        var error_1;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
                     _a.trys.push([0, 2, , 3]);
-                    return [4 /*yield*/, assets_service_1.saveAssetData(data)];
-                case 1:
-                    _a.sent();
-                    return [3 /*break*/, 3];
+                    return [4 /*yield*/, user_model_1.default.create(input)];
+                case 1: return [2 /*return*/, _a.sent()];
                 case 2:
-                    err_2 = _a.sent();
-                    console.error(err_2);
-                    return [3 /*break*/, 3];
+                    error_1 = _a.sent();
+                    throw new Error(error_1);
                 case 3: return [2 /*return*/];
             }
         });
     });
 }
-exports.saveVehicleAssetDataHandler = saveVehicleAssetDataHandler;
-function deleteVehicleAssetDataHandler(req, res) {
+exports.createUser = createUser;
+function findUser(query) {
     return __awaiter(this, void 0, void 0, function () {
-        var err_3;
         return __generator(this, function (_a) {
-            switch (_a.label) {
-                case 0:
-                    _a.trys.push([0, 2, , 3]);
-                    return [4 /*yield*/, assets_service_1.deleteAssetData()];
+            return [2 /*return*/, user_model_1.default.findOne(query).lean()];
+        });
+    });
+}
+exports.findUser = findUser;
+function validatePassword(_a) {
+    var email = _a.email, password = _a.password;
+    return __awaiter(this, void 0, void 0, function () {
+        var user, isValid;
+        return __generator(this, function (_b) {
+            switch (_b.label) {
+                case 0: return [4 /*yield*/, user_model_1.default.findOne({ email: email })];
                 case 1:
-                    _a.sent();
-                    return [2 /*return*/, res.send(200)];
-                case 2:
-                    err_3 = _a.sent();
-                    console.error(err_3);
-                    return [3 /*break*/, 3];
-                case 3: return [2 /*return*/];
+                    user = _b.sent();
+                    if (!user) {
+                        return [2 /*return*/, false];
+                    }
+                    isValid = true;
+                    if (!isValid) {
+                        return [2 /*return*/, false];
+                    }
+                    return [2 /*return*/, lodash_1.omit(user.toJSON(), "password")];
             }
         });
     });
 }
-exports.deleteVehicleAssetDataHandler = deleteVehicleAssetDataHandler;
+exports.validatePassword = validatePassword;

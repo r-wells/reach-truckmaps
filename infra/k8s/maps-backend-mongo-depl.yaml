@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: maps-backend-mongo-depl
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: maps-backend-mongo
+  template:
+    metadata:
+      labels:
+        app: maps-backend-mongo
+    spec:
+      containers:
+        - name: maps-backend-mongo
+          image: mongo
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: maps-backend-mongo-srv
+spec:
+  selector:
+    app: maps-backend-mongo
+  ports:
+    - name: db
+      protocol: TCP
+      port: 27017
+      targetPort: 27017

@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: maps-backend-depl
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: maps-backend
+  template:
+    metadata:
+      labels:
+        app: maps-backend
+    spec:
+      containers:
+        - name: maps-backend
+          image: logos164/maps-backend
+          env:
+            - name: MONGO_URI
+              value: "mongodb://maps-backend-mongo-srv:27017/maps-backend"
+            - name: JWT_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: jwt-secret
+                  key: JWT_KEY
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: maps-backend-srv
+spec:
+  selector:
+    app: maps-backend
+  ports:
+    - name: maps-backend
+      protocol: TCP
+      port: 3000
+      targetPort: 3000

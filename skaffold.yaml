@@ -1,0 +1,26 @@
+apiVersion: skaffold/v2alpha3
+kind: Config
+deploy:
+  kubectl:
+    manifests:
+      - ./infra/k8s/*
+build:
+  local:
+    push: false
+  artifacts:
+    - image: logos164/maps-backend
+      context: maps-backend
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        manual:
+          - src: "src/**/*.js"
+            dest: .
+    - image: logos164/maps-frontend
+      context: maps-frontend
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        manual:
+          - src: "**/*.tsx"
+            dest: .

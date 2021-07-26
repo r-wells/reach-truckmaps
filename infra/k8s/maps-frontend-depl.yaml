@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: maps-frontend-depl
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: maps-frontend
+  template:
+    metadata:
+      labels:
+        app: maps-frontend
+    spec:
+      containers:
+        - name: maps-frontend
+          image: logos164/maps-frontend
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: maps-frontend-srv
+spec:
+  selector:
+    app: maps-frontend
+  ports:
+    - name: maps-frontend
+      protocol: TCP
+      port: 3000
+      targetPort: 3000

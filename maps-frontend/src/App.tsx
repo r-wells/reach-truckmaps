@@ -7,7 +7,9 @@ import NavBar from "./components/NavBar";
 const App: React.FC = () => {
   const [token, setToken] = useState<string>("");
 
+  // const hasValidToken = true;
   const hasValidToken = token.length > 0;
+  //eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGVhMjVkZWQ0MWFlNjNhNDA2NjM2NDkiLCJlbWFpbCI6ImNhZXNhckBnbWFpbC5jb20iLCJuYW1lIjoiSnVsaXVzIiwiY3JlYXRlZEF0IjoiMjAyMS0wNy0xMFQyMjo1NzozNC4zNjZaIiwidXBkYXRlZEF0IjoiMjAyMS0wNy0xMFQyMjo1NzozNC4zNjZaIiwiX192IjowLCJzZXNzaW9uIjoiNjBmYjFjNzg3ODI1Yzg4MjRjMjFkODQ2IiwiaWF0IjoxNjI3MDY5NTYwLCJleHAiOjE2MjcwNzA0NjB9.Embzi7FjuQo7NFT--txpow_eeKFSwo0A8Jn2GFTbMlE
 
   return (
     <div className="App">

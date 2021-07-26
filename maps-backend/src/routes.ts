@@ -16,7 +16,7 @@ export default function (app: Express) {
   app.use(function (req: Request, res: Response, next: NextFunction) {
       res.header("Access-Control-Allow-Origin", "*");
       res.header('Access-Control-Allow-Methods', 'POST, GET, DELETE');
-      res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+      res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
       next();
   });
 

@@ -41,6 +41,7 @@ const MapContainer: React.FC<MapContainerProps> = (props) => {
   useEffect(() => {
     const fetchData = async () => {
       const response = await getTruckData(props.accessToken);
+
       setTruckData(response.data.assets);
     };
     fetchData();
@@ -66,7 +67,7 @@ const MapContainer: React.FC<MapContainerProps> = (props) => {
     );
   } else {
     return (
-      <LoadScript googleMapsApiKey={process.env.REACT_APP_GOOGLE_API_KEY ?? ""}>
+      <LoadScript googleMapsApiKey={"AIzaSyDcPmoBJ7bDoIiF32sfxzoMuYKUMls3RaI"}>
         <GoogleMap
           mapContainerStyle={mapStyles}
           zoom={5}
